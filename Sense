@@ -1,0 +1,9 @@
+def sense(color, grid, beliefs, p_hit, p_miss):
+    new_beliefs = []
+   
+    for i in range(len(grid)):
+        row = []
+        for j in range(len(grid[0])):
+            row.append(grid[i,j]==color * beliefs[i,j] * p_hit + grid[i,j]!=color * beliefs[i,j] * p_miss)
+        new_beliefs.append(row)
+    return new_beliefs
